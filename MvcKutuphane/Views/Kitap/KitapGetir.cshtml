@@ -1,0 +1,40 @@
+﻿@model MvcKutuphane.Models.Entity.TBLKITAP
+@{
+    ViewBag.Title = "KitapGetir";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@using (@Html.BeginForm("KitapGuncelle", "Kitap", FormMethod.Post))
+{
+
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+        @Html.LabelFor(k => k.ID)
+        @Html.TextBoxFor(k => k.ID, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.AD)
+        @Html.TextBoxFor(k => k.AD, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.KATEGORI)
+        @Html.DropDownListFor(k => k.TBLKATEGORI.ID, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.YAZAR)
+        @Html.DropDownListFor(k => k.TBLYAZAR.ID, (List<SelectListItem>)ViewBag.dgr2, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.BASIMYIL)
+        @Html.TextBoxFor(k => k.BASIMYIL, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.YAYINEVI)
+        @Html.TextBoxFor(k => k.YAYINEVI, new { @class = "form-control" })
+
+        <br />
+        @Html.LabelFor(k => k.SAYFA)
+        @Html.TextBoxFor(k => k.SAYFA, new { @class = "form-control" })
+
+    </div>
+    <div>
+        <button class="btn btn-warning">Güncelle</button>
+    </div>
+
+}
+
