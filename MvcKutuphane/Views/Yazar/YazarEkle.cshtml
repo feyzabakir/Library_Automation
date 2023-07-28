@@ -11,9 +11,11 @@
 
         <label>ADI</label>
         @Html.TextBoxFor(y => y.AD, new { @class = "form-control" })
+        @Html.ValidationMessageFor(y => y.AD)
         <br />
         <label>SOYADI</label>
         @Html.TextBoxFor(y => y.SOYAD, new { @class = "form-control" })
+        @Html.ValidationMessageFor(y => y.SOYAD)
         <br />
         <label>DETAY</label>
         @Html.TextAreaFor(y => y.DETAY, new { @class = "form-control" })
