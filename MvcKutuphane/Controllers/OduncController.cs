@@ -32,10 +32,14 @@ namespace MvcKutuphane.Controllers
             return View();
         }
 
-        public ActionResult OduncIade(int id)
+        public ActionResult OduncIade(TBLHAREKET p)
         {
-            var odunc = db.TBLHAREKET.Find(id);
-            return View("OduncIade", odunc);
+            var odn = db.TBLHAREKET.Find(p.ID);
+            DateTime d1 = DateTime.Parse(odn.SATISTARIHI.ToString());
+            DateTime d2 = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+            TimeSpan d3 = d2 - d1;
+            ViewBag.dgr = d3.TotalDays;
+            return View("Odunciade", odn);
         }
 
         public ActionResult OduncGuncelle(TBLHAREKET p)
