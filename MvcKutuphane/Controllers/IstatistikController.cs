@@ -46,5 +46,27 @@ namespace MvcKutuphane.Controllers
             }
             return RedirectToAction("Galeri");
         }
+        public ActionResult LinqKart()
+        {
+            var deger1 = db.TBLKITAP.Count();
+            var deger2 = db.TBLUYELER.Count();
+            var deger3 = db.TBLCEZALAR.Sum(x => x.PARA);
+            var deger4 = db.TBLKITAP.Where(x => x.DURUM == false).Count();
+            var deger5 = db.TBLKATEGORI.Count();
+            var deger8 = db.EnFazlaKitapYazar().FirstOrDefault();
+            var deger9 = db.TBLKITAP.GroupBy(x => x.YAYINEVI).OrderByDescending(z => z.Count()).Select(y => new { y.Key }).FirstOrDefault();
+            var deger11 = db.TBLILETISIM.Count();
+
+            ViewBag.dgr1 = deger1;
+            ViewBag.dgr2 = deger2;
+            ViewBag.dgr3 = deger3;
+            ViewBag.dgr4 = deger4;
+            ViewBag.dgr5 = deger5;
+            ViewBag.dgr8 = deger8;
+            ViewBag.dgr9 = deger9;
+            ViewBag.dgr11 = deger11;
+
+            return View();
+        }
     }
 }
