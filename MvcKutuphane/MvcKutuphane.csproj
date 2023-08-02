@@ -192,6 +192,9 @@
     <Compile Include="Models\Entity\TBLKITAP.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Entity\TBLMESAJLAR.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Entity\TBLPERSONEL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -577,6 +580,8 @@
     <Content Include="webpanel\vendor\jquery\jquery.slim.min.map" />
     <Content Include="Views\Mesajlar\Index.cshtml" />
     <Content Include="Views\Mesajlar\YeniMesaj.cshtml" />
+    <Content Include="Views\Mesajlar\Giden.cshtml" />
+    <Content Include="Views\Panelim\Kitaplarim.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
