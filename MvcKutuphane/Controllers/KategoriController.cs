@@ -13,7 +13,7 @@ namespace MvcKutuphane.Controllers
         DBKUTUPHANEEntities db = new DBKUTUPHANEEntities();
         public ActionResult Index()
         {
-            var degerler = db.TBLKATEGORI.ToList();
+            var degerler = db.TBLKATEGORI.Where(x=>x.DURUM==true).ToList();
             return View(degerler);
         }
         [HttpGet]
@@ -31,7 +31,8 @@ namespace MvcKutuphane.Controllers
         public ActionResult KategoriSil(int id)
         {
             var kategori = db.TBLKATEGORI.Find(id);
-            db.TBLKATEGORI.Remove(kategori);
+            // db.TBLKATEGORI.Remove(kategori);
+            kategori.DURUM = false;
             db.SaveChanges();
             return RedirectToAction("Index");
         }
