@@ -1,0 +1,52 @@
+﻿@using MvcKutuphane.Models.Entity;
+@model List<TBLDUYURULAR>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+    string renk = "";
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+<h2>Duyurular</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Duyuru No</th>
+        <th>Kategori</th>
+        <th>Tarih</th>
+        <th>Sil</th>
+        <th>İçerik</th>
+    </tr>
+    @foreach (var d in Model)
+    {
+
+        if (d.KATEGORI == "Diğer")
+        {
+            renk = "bg-info text-white";
+        }
+        if (d.KATEGORI == "Yeni Kitap")
+        {
+            renk = "bg-warning text-white";
+        }
+        if (d.KATEGORI == "İletişim")
+        {
+            renk = "bg-success text-white";
+        }
+        if (d.KATEGORI == "Kitapları Geciktirmeyin")
+        {
+            renk = "bg-danger text-white";
+        }
+        <tr class="@renk">
+            <td>@d.ID</td>
+            <td>@d.KATEGORI</td>
+            <td>@Convert.ToDateTime(d.TARIH).ToString("dd/MM/yyyy")</td>
+            <td><a href="/Duyuru/DuyuruSil/@d.ID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Duyuru/DuyuruDetay/@d.ID" class="btn btn-default" style="background-color:skyblue">Detaylar</a></td>
+        </tr>
+    }
+</table>
+<br />
+<a href="/Duyuru/YeniDuyuru/" class="btn btn-primary">Yeni Duyuru Ekle</a>

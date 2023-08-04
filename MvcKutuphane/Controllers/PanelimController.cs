@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace MvcKutuphane.Controllers
 {
@@ -39,6 +40,16 @@ namespace MvcKutuphane.Controllers
             var degerler = db.TBLHAREKET.Where(x => x.UYE == id).ToList();
             return View(degerler);
         }
-   
+        public ActionResult Duyurular()
+        {
+            var duyurulistesi = db.TBLDUYURULAR.ToList();
+            return View(duyurulistesi);
+        }
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("GirisYap", "Login");
+        }
+
     }
 }
