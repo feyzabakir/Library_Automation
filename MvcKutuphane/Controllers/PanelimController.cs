@@ -8,11 +8,12 @@ using System.Web.Security;
 
 namespace MvcKutuphane.Controllers
 {
+    [Authorize]
     public class PanelimController : Controller
     {
         // GET: Panelim
         DBKUTUPHANEEntities db = new DBKUTUPHANEEntities();
-        [Authorize]
+
         public ActionResult Index()
         {
             var uyemail = (string)Session["Mail"];
@@ -40,6 +41,7 @@ namespace MvcKutuphane.Controllers
             var degerler = db.TBLHAREKET.Where(x => x.UYE == id).ToList();
             return View(degerler);
         }
+
         public ActionResult Duyurular()
         {
             var duyurulistesi = db.TBLDUYURULAR.ToList();
