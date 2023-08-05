@@ -1,46 +1,306 @@
 ﻿@model MvcKutuphane.Models.Entity.TBLUYELER
+
 @{
+
     ViewBag.Title = "Index";
+
     Layout = "~/Views/Shared/_LayoutPanelim.cshtml";
+
 }
 
-<h2>Kütüphane Üye Profil Bilgileri</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AdminLTE 3 | User Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 
-@using (Html.BeginForm("Index2", "Panelim", FormMethod.Post))
-{
-    <table class="table table-hover" style="margin-top:30px">
+    <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
 
-        <tr>
-            <td>
-                <label style="font-weight:bolder"> Mail Adresi: </label> @HttpContext.Current.User.Identity.Name
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.TextBoxFor(x => x.AD, new { @class = "form-control" })
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.TextBoxFor(x => x.SOYAD, new { @class = "form-control" })
-            </td>
-        </tr>
-        <tr>
-            <td>   @Html.TextBoxFor(x => x.KULLANICIADI, new { @class = "form-control" })</td>
-        </tr>
-        <tr>
-            <td>   @Html.TextBoxFor(x => x.SIFRE, new { @class = "form-control" })</td>
-        </tr>
-        <tr>
-            <td>   @Html.TextBoxFor(x => x.FOTOGRAF, new { @class = "form-control" })</td>
-        </tr>
-        <tr>
-            <td>   @Html.TextBoxFor(x => x.OKUL, new { @class = "form-control" })</td>
-        </tr>
-        <tr>
-            <td>
-                <button class="btn btn-warning">Şifre Güncelle</button>
-            </td>
-        </tr>
-    </table>
-}
+<body class="hold-transition sidebar-mini">
+
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h3>Profilim</h3>
+                </div>
+
+            </div>
+        </div>
+ 
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3">
+
+                    <div class="card card-primary card-outline">
+                        <div class="card-body box-profile">
+                            <div class="text-center">
+                                <img class="profile-user-img img-fluid img-circle"
+                                     src="@ViewBag.d3"
+                                     alt="User profile picture">
+                            </div>
+
+                            <h3 class="profile-username text-center">@ViewBag.d1 @ViewBag.d2</h3>
+
+                            <p class="text-muted text-center">Kütüphane Üyesi</p>
+
+                            <ul class="list-group list-group-unbordered mb-3">
+                                <li class="list-group-item">
+                                    <b>Okuduğum Kitap Sayısı:</b> <a class="float-right">@ViewBag.d8</a>
+                                </li>
+
+                                <li class="list-group-item">
+                                    <b>Gelen Mesaj Sayısı:</b> <a class="float-right">@ViewBag.d9</a>
+                                </li>
+
+                                <li class="list-group-item">
+                                    <b>Duyuru Sayısı:</b> <a class="float-right">@ViewBag.d10</a>
+                                </li>
+                            </ul>
+
+                            <a href="#" class="btn btn-primary btn-block"><b>Gelen Kutusu</b></a>
+                        </div>
+
+                    </div>
+
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">Hakkımda</h3>
+                        </div>
+
+                        <div class="card-body">
+                            <strong><i class="fas fa-book mr-1"></i> Üniversite</strong>
+                            <p class="text-muted">
+
+                                @ViewBag.d5
+
+                            </p>
+
+                            <hr>
+
+                            <strong><i class="fas fa-map-marker-alt mr-1"></i> Telefon</strong>
+
+                            <p class="text-muted">@ViewBag.d6</p>
+
+                            <hr>
+                             
+                            <strong><i class="fas fa-pencil-alt mr-1"></i> Kullanıcı Adı</strong>
+                            <p>@ViewBag.d4</p>
+
+                            <hr>
+
+                            <strong><i class="far fa-file-alt mr-1"></i> Mail Adresi</strong>
+
+                            <p>@ViewBag.d7</p>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="col-md-9">
+                    <div class="card">
+                        <div class="card-header p-2">
+                            <ul class="nav nav-pills">
+                                <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Activity</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Settings</a></li>
+                            </ul>
+
+                        </div>
+
+                        <div class="card-body">
+
+                            <div class="tab-content">
+
+                                <div class="active tab-pane" id="activity">
+
+                                    <!-- Post -->
+
+                                    @Html.Partial("Partial1")
+
+
+                                </div>
+
+
+
+                                <div class="tab-pane" id="settings">
+
+                                    @using (Html.BeginForm("Index2", "Panelim", FormMethod.Post))
+
+                                    {
+
+                                        <form class="form-horizontal">
+
+                                            <div class="form-group row">
+
+                                                <label for="inputName" class="col-sm-2 col-form-label">Ad</label>
+
+                                                <div class="col-sm-10">
+
+                                                    @Html.TextBoxFor(x => x.AD, new { @class = "form-control" })
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-group row">
+
+                                                <label for="inputName" class="col-sm-2 col-form-label">Soyad</label>
+
+                                                <div class="col-sm-10">
+
+                                                    @Html.TextBoxFor(x => x.SOYAD, new { @class = "form-control" })
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-group row">
+
+                                                <label for="inputName" class="col-sm-2 col-form-label">Kullanıcı Adı</label>
+
+                                                <div class="col-sm-10">
+
+                                                    @Html.TextBoxFor(x => x.KULLANICIADI, new { @class = "form-control" })
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-group row">
+
+                                                <label for="inputName" class="col-sm-2 col-form-label">Şifre</label>
+
+                                                <div class="col-sm-10">
+
+                                                    @Html.TextBoxFor(x => x.SIFRE, new { @class = "form-control" })
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-group row">
+
+                                                <label for="inputName" class="col-sm-2 col-form-label">Fotoğraf</label>
+
+                                                <div class="col-sm-10">
+
+                                                    @Html.TextBoxFor(x => x.FOTOGRAF, new { @class = "form-control" })
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-group row">
+
+                                                <label for="inputName" class="col-sm-2 col-form-label">Okul</label>
+
+                                                <div class="col-sm-10">
+
+                                                    @Html.TextBoxFor(x => x.OKUL, new { @class = "form-control" })
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-group row">
+
+                                                <div class="offset-sm-2 col-sm-10">
+
+                                                    <div class="checkbox">
+
+                                                        <label>
+
+                                                            <input type="checkbox"> Şartları okudum <a href="#">kabul ediyorum</a>
+
+                                                        </label>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-group row">
+
+                                                <div class="offset-sm-2 col-sm-10">
+
+                                                    <button type="submit" class="btn btn-danger">Güncelle</button>
+
+                                                </div>
+
+                                            </div>
+
+                                        </form>
+
+                                    }
+
+                                </div>
+
+                                <!-- /.tab-pane -->
+
+                            </div>
+
+                            <!-- /.tab-content -->
+
+                        </div><!-- /.card-body -->
+
+                    </div>
+
+                    <!-- /.nav-tabs-custom -->
+
+                </div>
+
+                <!-- /.col -->
+
+            </div>
+
+            <!-- /.row -->
+
+        </div><!-- /.container-fluid -->
+
+    </section>
+
+    <!-- /.content -->
+    <!-- /.content-wrapper -->
+
+
+
+
+    <!-- Control Sidebar -->
+
+    <aside class="control-sidebar control-sidebar-dark">
+
+        <!-- Control sidebar content goes here -->
+
+    </aside>
+
+    <!-- /.control-sidebar -->
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+
+    <script src="../../plugins/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap 4 -->
+
+    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AdminLTE App -->
+
+    <script src="../../dist/js/adminlte.min.js"></script>
+
+    <!-- AdminLTE for demo purposes -->
+
+    <script src="../../dist/js/demo.js"></script>
+
+</body>
+
+</html>
