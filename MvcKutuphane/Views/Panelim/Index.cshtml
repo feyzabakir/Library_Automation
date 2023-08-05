@@ -1,4 +1,5 @@
-﻿@model MvcKutuphane.Models.Entity.TBLUYELER
+﻿@using MvcKutuphane.Models.Entity
+@model List<TBLDUYURULAR>
 
 @{
 
@@ -32,7 +33,6 @@
 
             </div>
         </div>
- 
 
     <section class="content">
         <div class="container-fluid">
@@ -77,34 +77,19 @@
 
                         <div class="card-body">
                             <strong><i class="fas fa-book mr-1"></i> Üniversite</strong>
-                            <p class="text-muted">
-
-                                @ViewBag.d5
-
-                            </p>
-
+                            <p class="text-muted">@ViewBag.d5</p>
                             <hr>
-
                             <strong><i class="fas fa-map-marker-alt mr-1"></i> Telefon</strong>
-
                             <p class="text-muted">@ViewBag.d6</p>
-
-                            <hr>
-                             
+                            <hr>            
                             <strong><i class="fas fa-pencil-alt mr-1"></i> Kullanıcı Adı</strong>
                             <p>@ViewBag.d4</p>
-
                             <hr>
-
                             <strong><i class="far fa-file-alt mr-1"></i> Mail Adresi</strong>
-
                             <p>@ViewBag.d7</p>
-
                         </div>
-
                     </div>
                 </div>
-
 
                 <div class="col-md-9">
                     <div class="card">
@@ -117,190 +102,22 @@
                         </div>
 
                         <div class="card-body">
-
                             <div class="tab-content">
-
-                                <div class="active tab-pane" id="activity">
-
-                                    <!-- Post -->
-
-                                    @Html.Partial("Partial1")
-
-
-                                </div>
-
-
-
-                                <div class="tab-pane" id="settings">
-
-                                    @using (Html.BeginForm("Index2", "Panelim", FormMethod.Post))
-
-                                    {
-
-                                        <form class="form-horizontal">
-
-                                            <div class="form-group row">
-
-                                                <label for="inputName" class="col-sm-2 col-form-label">Ad</label>
-
-                                                <div class="col-sm-10">
-
-                                                    @Html.TextBoxFor(x => x.AD, new { @class = "form-control" })
-
-                                                </div>
-
-                                            </div>
-
-                                            <div class="form-group row">
-
-                                                <label for="inputName" class="col-sm-2 col-form-label">Soyad</label>
-
-                                                <div class="col-sm-10">
-
-                                                    @Html.TextBoxFor(x => x.SOYAD, new { @class = "form-control" })
-
-                                                </div>
-
-                                            </div>
-
-                                            <div class="form-group row">
-
-                                                <label for="inputName" class="col-sm-2 col-form-label">Kullanıcı Adı</label>
-
-                                                <div class="col-sm-10">
-
-                                                    @Html.TextBoxFor(x => x.KULLANICIADI, new { @class = "form-control" })
-
-                                                </div>
-
-                                            </div>
-
-                                            <div class="form-group row">
-
-                                                <label for="inputName" class="col-sm-2 col-form-label">Şifre</label>
-
-                                                <div class="col-sm-10">
-
-                                                    @Html.TextBoxFor(x => x.SIFRE, new { @class = "form-control" })
-
-                                                </div>
-
-                                            </div>
-
-                                            <div class="form-group row">
-
-                                                <label for="inputName" class="col-sm-2 col-form-label">Fotoğraf</label>
-
-                                                <div class="col-sm-10">
-
-                                                    @Html.TextBoxFor(x => x.FOTOGRAF, new { @class = "form-control" })
-
-                                                </div>
-
-                                            </div>
-
-                                            <div class="form-group row">
-
-                                                <label for="inputName" class="col-sm-2 col-form-label">Okul</label>
-
-                                                <div class="col-sm-10">
-
-                                                    @Html.TextBoxFor(x => x.OKUL, new { @class = "form-control" })
-
-                                                </div>
-
-                                            </div>
-
-                                            <div class="form-group row">
-
-                                                <div class="offset-sm-2 col-sm-10">
-
-                                                    <div class="checkbox">
-
-                                                        <label>
-
-                                                            <input type="checkbox"> Şartları okudum <a href="#">kabul ediyorum</a>
-
-                                                        </label>
-
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-
-                                            <div class="form-group row">
-
-                                                <div class="offset-sm-2 col-sm-10">
-
-                                                    <button type="submit" class="btn btn-danger">Güncelle</button>
-
-                                                </div>
-
-                                            </div>
-
-                                        </form>
-
-                                    }
-
-                                </div>
-
-                                <!-- /.tab-pane -->
-
+                                <div class="active tab-pane" id="activity">@Html.Partial("Partial1")</div>
+                                <div class="tab-pane" id="settings">@Html.Action("Partial2", "Panelim")</div>
                             </div>
-
-                            <!-- /.tab-content -->
-
-                        </div><!-- /.card-body -->
-
+                        </div>
                     </div>
-
-                    <!-- /.nav-tabs-custom -->
-
                 </div>
-
-                <!-- /.col -->
-
             </div>
-
-            <!-- /.row -->
-
-        </div><!-- /.container-fluid -->
-
+        </div>
     </section>
-
-    <!-- /.content -->
-    <!-- /.content-wrapper -->
-
-
-
-
-    <!-- Control Sidebar -->
-
     <aside class="control-sidebar control-sidebar-dark">
 
-        <!-- Control sidebar content goes here -->
-
     </aside>
-
-    <!-- /.control-sidebar -->
-    <!-- ./wrapper -->
-    <!-- jQuery -->
-
     <script src="../../plugins/jquery/jquery.min.js"></script>
-
-    <!-- Bootstrap 4 -->
-
     <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- AdminLTE App -->
-
     <script src="../../dist/js/adminlte.min.js"></script>
-
-    <!-- AdminLTE for demo purposes -->
-
     <script src="../../dist/js/demo.js"></script>
-
 </body>
-
 </html>
