@@ -62,8 +62,11 @@
         <a href="/Yazar/Index/"><i class="glyphicon glyphicon-pencil"></i> &nbsp; Yazarlar</a>
         <a href="/Uye/Index/"><i class="glyphicon glyphicon-user"></i> &nbsp; Üyeler</a>
         <a href="/Personel/Index/"><i class="glyphicon glyphicon-tower"></i> &nbsp; Personeller</a>
+        @if (User.IsInRole("A")) 
+        {
         <a href="/Odunc/OduncVer/"><i class="glyphicon glyphicon-circle-arrow-right"></i> &nbsp; Ödünç Kitap Ver</a>
         <a href="/Odunc/Index/"><i class="glyphicon glyphicon-circle-arrow-left"></i> &nbsp; Ödünç Kitap Al</a>
+        }
         <a href="/istatistik/Index/"><i class="glyphicon glyphicon-sort"></i> &nbsp; İstatistikler</a>
         <a href="/Duyuru/Index/"><i class="glyphicon glyphicon-earphone"></i> &nbsp; Duyurular</a>
         <a href="/Islem/index/"><i class="glyphicon glyphicon-dashboard"></i> &nbsp; İşlemler</a>
@@ -74,7 +77,7 @@
         <a href="/Vitrin/Index/"><i class="glyphicon glyphicon-gift"></i> &nbsp; Vitrin</a>
         <a href="/Grafik/Index/"><i class="glyphicon glyphicon-console"></i> &nbsp; Grafikler</a>
         <a href="/Ayarlar/Index2/"><i class="glyphicon glyphicon-cog"></i> &nbsp; Ayarlar</a>
-        <a href="#"><i class="glyphicon glyphicon-remove-sign"></i> &nbsp; Çıkış</a>
+        <a href="/Panelim/LogOut/"><i class="glyphicon glyphicon-remove-sign"></i> &nbsp; Çıkış</a>
     </div>
 
     <div class="main">
